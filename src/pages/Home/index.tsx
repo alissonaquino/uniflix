@@ -1,0 +1,42 @@
+import {useEffect,useCallback, useState} from "react"
+import {Container, Content} from "./styles"
+import {Swiper, SwiperSlide} from "swiper/react"
+import axios from "axios";
+import {Banner} from "../../components/Banner"
+
+import "swiper/css";
+import { ListContainer } from "components/ContentList/styles";
+import { ContentList } from "components/ContentList";
+import { Layout } from "containers/Layout";
+
+const Home = () => {
+  const [banners, setBanners] = useState<any[]>([])
+  const [contents, setContents] = useState<any[]>([])
+
+  const getBanners = useCallback(async () => {
+    const {data} = await axios.get("https://api-uniflix.vercel.app/api/banners");
+    setBanners(data);
+  },[])
+  
+  const getContents = useCallback(async () => {
+    const {data} = await axios.get("https://api-uniflix.vercel.app/api/contents");
+    setContents(data);
+  }, [])
+  
+  
+
+
+  useEffect(() => {
+    console.log("useEffect");
+    getBanners();
+    getContents();
+  }, [])
+console.log(banners);
+  return <Layout><Container><Swiper loop={true}>{banners.map(banner => <SwiperSlide key={banner.id}> <Banner imageUrl={banner.cover} description={banner.sinopse} title={banner.title} url={banner.normalize} /> </SwiperSlide>)}</Swiper> 
+  <Content>
+    {contents.map(content => <ContentList data={content} key={content.id}/>)}
+  </Content>
+  </Container> </Layout> ;
+};
+
+export { Home };
