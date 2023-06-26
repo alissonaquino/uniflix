@@ -1,6 +1,6 @@
 Projeto desenvolvido no curso de frontend na semana da computação da unisal de Lorena 2022
 
-Obs: A visualização do projeto pode estar prejudicada pois a api foi retirada de ar
+Obs: A visualização do projeto pode estar prejudicada por atuais problemas com a api usada no desenvolvimento do projeto
 
 # Getting Started with Create React App
 
