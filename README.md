@@ -1,5 +1,7 @@
 Projeto desenvolvido no curso de frontend na semana da computação da unisal de Lorena 2022
 
+Obs: A visualização do projeto pode estar prejudicada pois a api foi retirada de ar
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
